@@ -13,7 +13,9 @@ function goCreatePromises(e) {
   });
     
   for(let i = 0; i <= Number(nstPromise.amount); i += 1) {
+
     const timeDelay = Number(nstPromise.delay) + i*nstPromise.step;
+    
     createPromise(i, timeDelay)
     .then((res) => {
       Notiflix.Notify.success(res);
