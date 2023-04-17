@@ -12,6 +12,10 @@ function goCreatePromises(e) {
     nstPromise[name] = Number(value.trim());
   });
 
+  if(nstPromise.amount <= 0 || nstPromise.delay < 0 || nstPromise.step < 0) {
+     Notiflix.Notify.warning("Wrong value(s) in field(s). Please fill form correctly");
+     return;
+  }
   form.reset();
   
   for(let i = 0; i < nstPromise.amount; i += 1) {

@@ -72,7 +72,7 @@ function fnCheckDate() {
     const insertDate = new Date(inputDataPicker.value);
     const currentDate = new Date;
 
-    if(currentDate.getTime() > insertDate.getTime()){
+    if(currentDate.getTime() >= insertDate.getTime()){
         Notiflix.Notify.warning('Please choose a date in the future');
         return;
     }
