@@ -9,12 +9,14 @@ function goCreatePromises(e) {
   const nstPromise = {};
 
   new FormData(e.currentTarget).forEach((value, name) => {
-    nstPromise[name] = value;
+    nstPromise[name] = Number(value.trim());
   });
-    
-  for(let i = 0; i < Number(nstPromise.amount); i += 1) {
 
-    const timeDelay = Number(nstPromise.delay) + i*nstPromise.step;
+  form.reset();
+  
+  for(let i = 0; i < nstPromise.amount; i += 1) {
+
+    const timeDelay = nstPromise.delay + i*nstPromise.step;
 
     createPromise(i, timeDelay)
     .then((res) => {
